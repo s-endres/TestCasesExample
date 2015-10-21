@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using Selenium.SeleniumMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,9 @@ namespace Selenium
 
         public ExecutePOM Login(string pUserName, string pPassword)
         {
-            txtUserName.SendKeys(pUserName);
-            txtPassword.SendKeys(pPassword);
+            SeleniumSetMethods.setElementValue(txtUserName, pUserName, ElementType.TextInput);
+            SeleniumSetMethods.setElementValue(txtPassword, pPassword, ElementType.TextInput);
+
             btnLogin.Submit(); // Tiene que se .Submit() para que redireccione la pagina
 
             return new ExecutePOM();

@@ -32,6 +32,7 @@ namespace Selenium
            ExecutePOM EApage = loginPage.Login("pepito","123");
 
            EApage.FillUserForm("Initial","Name","Middle","Mr.");
+           Console.WriteLine(EApage.UserFormToString());
 
         }
 

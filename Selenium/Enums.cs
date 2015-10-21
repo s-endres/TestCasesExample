@@ -8,10 +8,10 @@ namespace Selenium
 {
     enum ElementType
     {
-        Id,
-        Name,
-        LinkText,
-        CssName,
-        ClassName
+        TextInput,
+        Ddl,
+        RadioBtn,
+        Btn,
+        CheckBox
     }
 }

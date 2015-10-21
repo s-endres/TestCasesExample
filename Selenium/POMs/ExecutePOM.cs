@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using Selenium.SeleniumMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Selenium
         }
 
         [FindsBy(How = How.Id,Using="TitleId")]
-        public IWebElement ddlElTitle { get; set; }
+        public IWebElement ddlTitle { get; set; }
 
         [FindsBy(How = How.Name, Using = "Initial")]
         public IWebElement txtInitial { get; set; }
@@ -35,16 +36,26 @@ namespace Selenium
 
         public ExecutePOM FillUserForm(string pInitial, string pFirstName, string pMiddleName, string pTitle)
         {
-            txtInitial.SendKeys(pInitial);
-            txtFirstName.SendKeys(pFirstName);
-            txtMiddleName.SendKeys(pMiddleName);
-
-            SelectElement ddlTitle = new SelectElement(ddlElTitle);
-            ddlTitle.SelectByText(pTitle);
-
+            SeleniumSetMethods.setElementValue(txtInitial, pInitial, ElementType.TextInput);
+            SeleniumSetMethods.setElementValue(txtFirstName, pFirstName, ElementType.TextInput);
+            SeleniumSetMethods.setElementValue(txtMiddleName, pMiddleName, ElementType.TextInput);
+            SeleniumSetMethods.setElementValue(ddlTitle, pTitle, ElementType.Ddl);
+            
             btnSave.Click(); // ó btnSave.Submit();
 
             return new ExecutePOM();
+        }
+
+        public string UserFormToString()
+        {
+            string result;
+
+            result = SeleniumGetMethods.getElementValue(txtInitial, ElementType.TextInput)+",";
+            result += SeleniumGetMethods.getElementValue(txtFirstName, ElementType.TextInput) + ",";
+            result += SeleniumGetMethods.getElementValue(txtMiddleName, ElementType.TextInput) + ",";
+            result += SeleniumGetMethods.getElementValue(ddlTitle, ElementType.Ddl);
+
+            return result;
         }
 
     }
