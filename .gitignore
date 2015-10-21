@@ -1,0 +1,4 @@
+Selenium/bin/*
+Selenium/obj/*
+packages/*
+*.suo

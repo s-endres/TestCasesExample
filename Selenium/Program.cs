@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
@@ -11,21 +12,35 @@ namespace Selenium
 {
     class Program
     {
+        IWebDriver driver = new ChromeDriver();
         static void Main(string[] args)
         {
-            //Create reference for our browser
-            IWebDriver driver = new ChromeDriver();
-            // ó IWebDriver driver = new FirefoxDriver();
+            
+        }
 
-            //Go to google.com
+        [SetUp]
+        public void Initialize()
+        {
             driver.Navigate().GoToUrl("http://www.google.com");
+        }
 
-            //Get the element
+        [Test]
+        public void ExecuteTest()
+        {
             IWebElement element = driver.FindElement(By.Id("lst-ib"));
-
-            //Perform Ops
             element.SendKeys("Hello World");
+        }
 
+        [Test]
+        public void NextTest()
+        {
+            Console.WriteLine("Here goes the second test");
+        }
+
+        [TearDown]
+        public void cleanUp()
+        {
+            driver.Close();
         }
     }
 }

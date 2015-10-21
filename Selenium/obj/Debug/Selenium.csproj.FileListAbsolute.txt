@@ -1,9 +1,0 @@
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\bin\Debug\Selenium.exe.config
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\bin\Debug\Selenium.exe
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\bin\Debug\Selenium.pdb
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\bin\Debug\WebDriver.dll
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\bin\Debug\WebDriver.xml
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\obj\Debug\Selenium.csprojResolveAssemblyReference.cache
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\obj\Debug\Selenium.exe
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\obj\Debug\Selenium.pdb
-C:\Users\Stephan Endres\Desktop\AutomaticTests\Selenium\Selenium\bin\Debug\chromedriver.exe
