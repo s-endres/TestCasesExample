@@ -36,10 +36,10 @@ namespace Selenium
 
         public ExecutePOM FillUserForm(string pInitial, string pFirstName, string pMiddleName, string pTitle)
         {
-            SeleniumSetMethods.setElementValue(txtInitial, pInitial, ElementType.TextInput);
-            SeleniumSetMethods.setElementValue(txtFirstName, pFirstName, ElementType.TextInput);
-            SeleniumSetMethods.setElementValue(txtMiddleName, pMiddleName, ElementType.TextInput);
-            SeleniumSetMethods.setElementValue(ddlTitle, pTitle, ElementType.Ddl);
+            txtInitial.setElementValue(pInitial, ElementType.TextInput);
+            txtFirstName.setElementValue(pFirstName, ElementType.TextInput);
+            txtMiddleName.setElementValue(pMiddleName, ElementType.TextInput);
+            ddlTitle.setElementValue(pTitle, ElementType.TextInput);
             
             btnSave.Click(); // ó btnSave.Submit();
 
@@ -50,10 +50,10 @@ namespace Selenium
         {
             string result;
 
-            result = SeleniumGetMethods.getElementValue(txtInitial, ElementType.TextInput)+",";
-            result += SeleniumGetMethods.getElementValue(txtFirstName, ElementType.TextInput) + ",";
-            result += SeleniumGetMethods.getElementValue(txtMiddleName, ElementType.TextInput) + ",";
-            result += SeleniumGetMethods.getElementValue(ddlTitle, ElementType.Ddl);
+            result = txtInitial.getElementValue(ElementType.TextInput)+",";
+            result += txtFirstName.getElementValue(ElementType.TextInput) + ",";
+            result += txtMiddleName.getElementValue(ElementType.TextInput) + ",";
+            result += ddlTitle.getElementValue(ElementType.Ddl);
 
             return result;
         }

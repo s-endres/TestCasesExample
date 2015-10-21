@@ -28,8 +28,8 @@ namespace Selenium
 
         public ExecutePOM Login(string pUserName, string pPassword)
         {
-            SeleniumSetMethods.setElementValue(txtUserName, pUserName, ElementType.TextInput);
-            SeleniumSetMethods.setElementValue(txtPassword, pPassword, ElementType.TextInput);
+            txtUserName.setElementValue(pUserName, ElementType.TextInput);
+            txtPassword.setElementValue(pPassword, ElementType.TextInput);
 
             btnLogin.Submit(); // Tiene que se .Submit() para que redireccione la pagina
 

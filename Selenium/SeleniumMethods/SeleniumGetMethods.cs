@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Selenium.SeleniumMethods
 {
-    class SeleniumGetMethods
+    public static class SeleniumGetMethods
     {
-        public static string getElementValue(IWebElement pElement, ElementType pElementType)
+        public static string getElementValue(this IWebElement pElement, ElementType pElementType)
         {
             string result;
             switch (pElementType)

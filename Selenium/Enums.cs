@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Selenium
 {
-    enum ElementType
+    public enum ElementType
     {
         TextInput,
         Ddl,

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Selenium.SeleniumMethods
 {
-    class SeleniumSetMethods
+    public static class SeleniumSetMethods
     {
-        public static void setElementValue(IWebElement pElement, string pValue, ElementType pElementType)
+        public static void setElementValue(this IWebElement pElement, string pValue, ElementType pElementType)
         {
             switch (pElementType)
             {
