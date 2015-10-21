@@ -17,9 +17,9 @@ namespace Selenium
         /// <param name="pElementIdentifier"></param>
         /// <param name="pElementType"></param>
         /// <returns></returns>
-        public static string getElementText(IWebDriver pDriver, string pElementIdentifier, string pElementType)
+        public static string getElementText(string pElementIdentifier, ElementType pElementType)
         {
-            IWebElement element = GlobalMethods.getMyElement(pDriver, pElementIdentifier, pElementType);
+            IWebElement element = GlobalMethods.getMyElement(pElementIdentifier, pElementType);
             return element.GetAttribute("value");
             
         }
@@ -31,9 +31,9 @@ namespace Selenium
         /// <param name="pElementIdentifier"></param>
         /// <param name="pElementType"></param>
         /// <returns></returns>
-        public static string getDDLText(IWebDriver pDriver, string pElementIdentifier, string pElementType)
+        public static string getDDLText(string pElementIdentifier, ElementType pElementType)
         {
-            SelectElement element = new SelectElement(GlobalMethods.getMyElement(pDriver, pElementIdentifier, pElementType));
+            SelectElement element = new SelectElement(GlobalMethods.getMyElement(pElementIdentifier, pElementType));
             return element.SelectedOption.Text;
 
         }

@@ -12,7 +12,6 @@ namespace Selenium
 {
     class Program
     {
-        IWebDriver driver = new ChromeDriver();
         static void Main(string[] args)
         {
             
@@ -21,18 +20,19 @@ namespace Selenium
         [SetUp]
         public void Initialize()
         {
-            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
+            GlobalMethods.driver = new ChromeDriver();
+            GlobalMethods.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
         }
 
         [Test]
         public void ExecuteTest()
         {
-            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
-            SeleniumSetMethods.EnterText(driver, "Initial", "Boom!", "Name");
-            SeleniumSetMethods.PerformClick(driver, "Save", "Name");
+            SeleniumSetMethods.SelectDropDown("TitleId", "Mr.", ElementType.Id);
+            SeleniumSetMethods.EnterText("Initial", "Boom!", ElementType.Name);
+            SeleniumSetMethods.PerformClick("Save", ElementType.Name);
 
-            string textSelect = SeleniumGetMethods.getDDLText(driver, "TitleId", "Id");
-            string textInput = SeleniumGetMethods.getElementText(driver, "Initial", "Name");
+            string textSelect = SeleniumGetMethods.getDDLText("TitleId", ElementType.Id);
+            string textInput = SeleniumGetMethods.getElementText("Initial", ElementType.Name);
 
             Console.WriteLine("First text: " + textSelect + " - Second text: " + textInput);
         }
@@ -40,7 +40,7 @@ namespace Selenium
         [TearDown]
         public void cleanUp()
         {
-            driver.Close();
+            GlobalMethods.driver.Close();
         }
     }
 }
