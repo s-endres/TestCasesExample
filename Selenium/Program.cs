@@ -27,14 +27,11 @@ namespace Selenium
         [Test]
         public void ExecuteTest()
         {
-            SeleniumSetMethods.SelectDropDown("TitleId", "Mr.", ElementType.Id);
-            SeleniumSetMethods.EnterText("Initial", "Boom!", ElementType.Name);
-            SeleniumSetMethods.PerformClick("Save", ElementType.Name);
+            //Initialize the page
+            EAPageObject page = new EAPageObject();
+            page.txtInitial.SendKeys("Boom!");
+            page.btnSave.Click();
 
-            string textSelect = SeleniumGetMethods.getDDLText("TitleId", ElementType.Id);
-            string textInput = SeleniumGetMethods.getElementText("Initial", ElementType.Name);
-
-            Console.WriteLine("First text: " + textSelect + " - Second text: " + textInput);
         }
 
         [TearDown]

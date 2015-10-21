@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EAPageObject.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="GlobalMethods.cs" />
     <Compile Include="Program.cs" />
