@@ -21,20 +21,15 @@ namespace Selenium
         [SetUp]
         public void Initialize()
         {
-            driver.Navigate().GoToUrl("http://www.google.com");
+            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
         }
 
         [Test]
         public void ExecuteTest()
         {
-            IWebElement element = driver.FindElement(By.Id("lst-ib"));
-            element.SendKeys("Hello World");
-        }
-
-        [Test]
-        public void NextTest()
-        {
-            Console.WriteLine("Here goes the second test");
+            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
+            SeleniumSetMethods.EnterText(driver, "Initial", "Boom!", "Name");
+            SeleniumSetMethods.PerformClick(driver, "Save", "Name");
         }
 
         [TearDown]
