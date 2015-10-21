@@ -20,24 +20,25 @@ namespace Selenium
         [SetUp]
         public void Initialize()
         {
-            GlobalMethods.driver = new ChromeDriver();
-            GlobalMethods.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
+            Global.driver = new ChromeDriver();
+            Global.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
         }
 
         [Test]
         public void ExecuteTest()
         {
-            //Initialize the page
-            EAPageObject page = new EAPageObject();
-            page.txtInitial.SendKeys("Boom!");
-            page.btnSave.Click();
+           LoginPOM loginPage = new LoginPOM();
+
+           ExecutePOM EApage = loginPage.Login("pepito","123");
+
+           EApage.FillUserForm("Initial","Name","Middle","Mr.");
 
         }
 
         [TearDown]
         public void cleanUp()
         {
-            GlobalMethods.driver.Close();
+            Global.driver.Close();
         }
     }
 }

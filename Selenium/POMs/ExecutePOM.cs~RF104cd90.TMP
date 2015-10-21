@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Selenium
 {
-    class EAPageObject
+    class EexecutePOM
     {
 
-        public EAPageObject()
+        public EexecutePOM()
         {
             PageFactory.InitElements(GlobalMethods.driver, this);
         }
