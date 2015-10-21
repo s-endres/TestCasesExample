@@ -20,7 +20,7 @@ namespace Selenium
         /// <param name="pElementType"></param>
         public static void EnterText(IWebDriver pDriver, string pElementIdentifier, string pValue, string pElementType)
         {
-            IWebElement element = getMyElement(pDriver, pElementIdentifier, pElementType);
+            IWebElement element = GlobalMethods.getMyElement(pDriver, pElementIdentifier, pElementType);
             if (element != null)
                 element.SendKeys(pValue);
         }
@@ -34,7 +34,7 @@ namespace Selenium
        
         public static void PerformClick(IWebDriver pDriver, string pElementIdentifier, string pElementType)
         {
-            IWebElement element = getMyElement(pDriver, pElementIdentifier, pElementType);
+            IWebElement element = GlobalMethods.getMyElement(pDriver, pElementIdentifier, pElementType);
             if (element != null)
                 element.Click();
         }
@@ -48,38 +48,11 @@ namespace Selenium
         /// <param name="pElementType"></param>
         public static void SelectDropDown(IWebDriver pDriver, string pElementIdentifier, string pValue, string pElementType)
         {
-            SelectElement dropDown = new SelectElement(getMyElement(pDriver, pElementIdentifier, pElementType));
+            SelectElement dropDown = new SelectElement(GlobalMethods.getMyElement(pDriver, pElementIdentifier, pElementType));
             if (dropDown != null)
                 dropDown.SelectByText(pValue);
         }
 
-        /// <summary>
-        /// We look for an element, if we dont find it we return NULL
-        /// </summary>
-        /// <param name="pDriver"></param>
-        /// <param name="pElementIdentifier"></param>
-        /// <param name="pValue"></param>
-        /// <param name="pElementType">Name or Id</param>
-        /// <returns></returns>
-        private static IWebElement getMyElement(IWebDriver pDriver, string pElementIdentifier, string pElementType)
-        {
-            IWebElement element;
-
-            switch (pElementType)
-            {
-                case "Id":
-                    element = pDriver.FindElement(By.Id(pElementIdentifier));
-                    break;
-                case "Name":
-                    element = pDriver.FindElement(By.Name(pElementIdentifier));
-                    break;
-                default:
-                    element = null;
-                    break;
-            }
-
-            return element;
-        }
 
     }
 }

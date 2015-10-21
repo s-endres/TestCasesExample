@@ -30,6 +30,11 @@ namespace Selenium
             SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
             SeleniumSetMethods.EnterText(driver, "Initial", "Boom!", "Name");
             SeleniumSetMethods.PerformClick(driver, "Save", "Name");
+
+            string textSelect = SeleniumGetMethods.getDDLText(driver, "TitleId", "Id");
+            string textInput = SeleniumGetMethods.getElementText(driver, "Initial", "Name");
+
+            Console.WriteLine("First text: " + textSelect + " - Second text: " + textInput);
         }
 
         [TearDown]
