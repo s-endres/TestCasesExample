@@ -14,7 +14,6 @@ namespace Selenium
     {
         static void Main(string[] args)
         {
-            
         }
 
         [SetUp]
@@ -27,12 +26,13 @@ namespace Selenium
         [Test]
         public void ExecuteTest()
         {
-           LoginPOM loginPage = new LoginPOM();
+            ExcelLib.PopulateInCollection(@"C:\Data.xlsx");
+            LoginPOM loginPage = new LoginPOM();
 
-           ExecutePOM EApage = loginPage.Login("pepito","123");
+            ExecutePOM EApage = loginPage.Login(ExcelLib.ReadData(1, "UserName"), ExcelLib.ReadData(1, "Password"));
 
-           EApage.FillUserForm("Initial","Name","Middle","Mr.");
-           Console.WriteLine(EApage.UserFormToString());
+            EApage.FillUserForm(ExcelLib.ReadData(1, "Initial"), ExcelLib.ReadData(1, "FirstName"), ExcelLib.ReadData(1, "MiddleName"), "Mr.");
+            Console.WriteLine(EApage.UserFormToString());
 
         }
 
